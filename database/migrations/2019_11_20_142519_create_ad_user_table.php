@@ -13,7 +13,7 @@ class CreateAdUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('ads_users', function (Blueprint $table) {
+        Schema::create('ad_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->bigInteger('ad_id')->unsigned()->nullable();
@@ -38,7 +38,7 @@ class CreateAdUserTable extends Migration
      */
     public function down()
     {
-        Schema::table('ad_users', function (Blueprint $table) {
+        Schema::table('ad_user', function (Blueprint $table) {
             $table->dropForeign('ad_id');
             $table->dropColumn('ad_id');
             $table->dropForeign('user_id');

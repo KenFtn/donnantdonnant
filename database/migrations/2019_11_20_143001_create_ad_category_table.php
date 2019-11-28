@@ -13,7 +13,7 @@ class CreateAdCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('ads_categories', function (Blueprint $table) {
+        Schema::create('ad_category', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->bigInteger('category_id')->unsigned()->nullable();
@@ -38,12 +38,12 @@ class CreateAdCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::table('ads_categories', function (Blueprint $table) {
-            $table->dropForeign('ads_id');
-            $table->dropColumn('ads_id');
-            $table->dropForeign('categories_id');
-            $table->dropColumn('categories_id');
+        Schema::table('ad_category', function (Blueprint $table) {
+            $table->dropForeign('ad_id');
+            $table->dropColumn('ad_id');
+            $table->dropForeign('category_id');
+            $table->dropColumn('category_id');
         });
-        Schema::dropIfExists('ads_categories');
+        Schema::dropIfExists('ad_category');
     }
 }
