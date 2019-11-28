@@ -1,0 +1,42 @@
+// Body
+$body-bg: #FFF;
+
+// Typography
+$font: 'Montserrat', sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #216E88;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #FF4657;
+$orange: rgb(255, 150, 0);
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$black : rgb(53, 53, 53);
+$fond : #E7E7E6;
+$marron : rgb(112, 41, 19);
+
+@mixin flex($dir, $justify, $align)
+{
+    display : flex;
+    flex-direction: $dir;
+    align-items: $align;
+    justify-content: $justify;
+}
+@mixin font($rem)
+{
+    font-size : $rem;
+}
+@mixin absolute($h, $w, $top, $left)
+{
+    position : absolute;
+    height : $h;
+    width : $w;
+    top : $top;
+    left : $left;
+}

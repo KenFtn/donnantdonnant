@@ -1,0 +1,106 @@
+footer
+{
+    position: relative;
+    height: 350px;
+    background-color: $orange;
+    overflow: hidden;
+    display: flex;
+    img
+    {
+        position: absolute;
+        height : 120%;
+        right : -5%;
+        bottom : -28%;
+        z-index: 1;
+    }
+    .left
+    {
+        height: 100%;
+        width : 45%;
+        padding-top: 50px;
+        padding-left: 50px;
+        padding-right: 70px;
+
+        p:nth-child(1)
+        {
+            color : $marron;
+            font-style:italic;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        p:nth-child(2)
+        {
+            color : white;
+            font-weight: bold;
+            margin-bottom: 70px;
+        }
+        p:nth-child(3)
+        {
+            color : white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 70px;
+        }
+    }
+    .right
+    {
+        height : 100%;
+        padding-top: 50px;
+        width : 55%;
+        position: relative;
+        z-index: 30;
+        p
+        {
+            color : $marron;
+            font-style:italic;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        li
+        {
+            list-style-type: none;
+        }
+        i
+        {
+            color : white;
+        }
+        a
+        {
+            color : white;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 70px;
+            margin-left: 10px;
+            transition: .5s;
+        }
+        a:hover
+        {
+            text-decoration: none;
+            margin-left: 20px;
+        }
+    }
+    .copyright
+    {
+        position: absolute;
+        color : white;
+        bottom : 5px;
+        right : 45px;
+        font-weight: 900;
+        z-index: 5;
+    }
+}
+@media only screen and (max-width: 800px)
+{
+    footer
+    {
+        height : auto;
+        img
+        {
+            position: absolute;
+            height : 300px;
+            right : 0 !important;
+            bottom : -28%;
+            z-index: 1;
+        }
+    }
+}

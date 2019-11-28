@@ -1,0 +1,339 @@
+.entete
+{
+    @include flex(column, center, center);
+
+    background-image: url("./img/dog.jpg");
+    background-size: cover;
+    height: 100vh;
+    position : relative;
+
+    .gradient
+    {
+        @include absolute(100%, 100%, 0, 0);
+        background: linear-gradient(60deg, rgba(255,69,241,0.23) 20%, rgba(0,108,255,0.3) 100%);
+        z-index: 0;
+    }
+
+    h1
+    {
+        @include absolute(auto, auto, 200px, 150px);
+        color : white;
+        font-size: 4.7rem;
+        font-weight: 900;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+    .twoBtn
+    {
+        @include absolute(auto, 100%, 55%, 0);
+        @include flex(row, space-evenly, center);
+        z-index: 2;
+        padding : 0 80px;
+
+
+        a
+        {
+            text-align: center;
+            color : white;
+            background-color: $orange;
+            padding : 21px 16px;
+            width : 300px;
+            border-radius: 8px;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+    }
+    .bandeNoire
+    {
+        @include flex(row, space-evenly, center);
+        @include absolute(80px, 100%, auto, 0);
+        bottom : 0;
+        background-color: rgba(0, 0, 0, .65);
+        padding : 0 15%;
+        p
+        {
+            margin : 0;
+            color : white;
+            font-weight: 600;
+        }
+        div
+        {
+            background-color: $orange;
+            height : 15px;
+            width : 15px;
+            border-radius: 50%;
+        }
+    }
+}
+.explications
+{
+    p:nth-child(1)
+    {
+        margin:80px 0px 50px 0;
+        text-align: center;
+        color : $black;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    p:nth-child(2)
+    {
+        margin:0px 0px 90px 0;
+        font-size: 1.2rem;
+        color : $black;
+        text-align: center;
+        padding :0 20%;
+
+        span
+        {
+            font-weight: 900;
+        }
+    }
+    .ronds
+    {
+        @include flex(row, space-evenly, center);
+        padding : 0 5%;
+
+        .rondtxt
+        {
+            .rond
+            {
+                position : relative;
+                @include flex(row, center, center);
+                border-radius: 50%;
+                height : 380px;
+                width : 380px;
+                font-size: 8rem;
+                font-weight: bold;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                border-radius : 50%;
+                overflow: hidden;
+                font-family: 'Coda Caption', sans-serif;
+                text-align: center;
+                margin-left : 5px;
+                padding-left : 5px;
+                background-position: center;
+            }
+            .rond:before,
+            .rond:after {
+                @include flex(row, center, center);
+                position: absolute;
+                content: '';
+            }
+            .rond:before {
+                z-index: -2;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-image: inherit;
+                background-size: cover;
+                background-position: center;
+            }
+            
+            /* Text Background (black zone) */
+            .rond:after {
+                position: absolute;
+                z-index: -1;
+                top: 25%;
+                right: 25%;
+                bottom: 25%;
+                left: 25%;
+                background-color: rgba(255,255,255, .6);
+                border-radius : 50%;
+                box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.77);
+                background-size: cover;
+            }
+            .rond_one{
+                background-image: url("./img/cowork.png"); 
+                background-size: cover;
+            }
+            .rond_two{
+                background-image: url("./img/whisper.png");
+                background-size: cover;
+                background-position: center top;
+            }
+            .rond_three{
+                background-image: url("./img/handshake.jpg");
+                background-size: cover;
+            } 
+
+            p
+            {
+                height : 60px;
+                margin-top: 70px;
+                font-weight: bold;
+            }
+        }
+    }
+    p:nth-child(4)
+    {
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin : 0 0 40px 0;
+    }
+    .inscri
+    {
+        @include flex(row, center, center);
+        width : 100%;
+        height : 100%;
+        a
+        {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color : white;
+            background-color: $orange;
+            padding : 18px 55px; 
+            border-radius: 10px;
+            margin-bottom: 100px;
+        }
+    }
+}
+
+.besoin
+{
+    padding-top: 70px;
+    position : relative;
+    background-color: $fond;
+    .ligneBleue
+    {
+        @include flex(row, center, center);
+        width : 100%;
+        height : auto;
+        position : relative;
+        margin-bottom: 70px;
+        div
+        {
+            width : 100%;
+            height : 3px;
+            background-color: $blue;
+        }
+        h3 
+        {
+            @include absolute(auto, auto, 50%, 50%);
+            background-color: $fond;
+            transform: translate(-50%,-50%);
+            color : $blue;
+            font-weight: bold;
+            padding : 0 60px;
+        }
+    }
+
+    .categoriesBesoin
+    {
+        @include flex(row, space-between, center);
+        width : 70%;
+        padding : 0 3%;
+        margin : 0 15% 60px 15%;
+        height : 80px;
+        border-radius: 10px;
+        background-color: #FFF;
+
+        form
+        {
+            button
+            {
+                position : relative;
+                background: none;
+                border : none;
+                color : $blue;
+                font-weight: 600;
+                outline : none;
+            }
+            button::after
+            {
+                content : "";
+                @include absolute(2px, 100%, 25px, 0);
+                background-color: $blue;
+                transform : scale(0);
+                transition: .5s;
+            }
+            button:hover::after
+            {
+                transform : scale(1);
+            }
+        }
+    }
+    .annoncesB
+    {
+        height : 400px;
+        background-color: $fond;
+    }
+}
+
+.peutetre
+{
+    padding-top: 70px;
+    position : relative;
+    background-color: #FFF;
+    .ligneBleue
+    {
+        @include flex(row, center, center);
+        width : 100%;
+        height : auto;
+        position : relative;
+        margin-bottom: 70px;
+        div
+        {
+            width : 100%;
+            height : 3px;
+            background-color: $red;
+        }
+        h3 
+        {
+            @include absolute(auto, auto, 50%, 50%);
+            background-color: #FFF;
+            transform: translate(-50%,-50%);
+            color : $red;
+            font-weight: bold;
+            padding : 0 60px;
+        }
+    }
+
+    .catPeutetre
+    {
+        @include flex(row, space-between, center);
+        width : 70%;
+        padding : 0 3%;
+        margin : 0 15% 60px 15%;
+        height : 80px;
+        border-radius: 10px;
+        background-color: $fond;
+
+        form
+        {
+            button
+            {
+                position : relative;
+                background: none;
+                border : none;
+                color : $red;
+                font-weight: bolder;
+                outline : none;
+            }
+            button::after
+            {
+                content : "";
+                @include absolute(2px, 100%, 25px, 0);
+                background-color: $red;
+                transform : scale(0);
+                transition: .5s;
+            }
+            button:hover::after
+            {
+                transform : scale(1);
+            }
+        }
+    }
+    .annoncesB
+    {
+        height : 400px;
+        background-color: $fond;
+    }
+}
+
+
+
+

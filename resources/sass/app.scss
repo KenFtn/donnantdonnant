@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Coda+Caption:800&display=swap');
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//nav
+@import './home/nav';
+
+//index
+@import './home/index';
+
+//media queries
+@import './home/mediaqueries.scss';
+
+//footer
+@import './home/footer';

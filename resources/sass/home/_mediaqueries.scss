@@ -1,0 +1,14 @@
+@media only screen and (max-width: 1600px){
+    .entete
+    {
+
+        h1
+        {
+            @include absolute(auto, auto, 150px, 110px);
+            color : white;
+            font-size: 4.7rem;
+            font-weight: 900;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.53);
+        }
+    }
+}
