@@ -16,9 +16,11 @@ class AdController extends Controller
      */
     public function index(Request $request)
     {
-        $categories = Category::with('ads.user')->where('id', $request->cat)->first();
-        $ads = $categories->ads->where('type', $request->type)->sortByDesc('ad.created_at');
-        return response()->json($ads);
+        $category = Category::with('ads.user')->where('id', $request->cat)->first();
+        $ads = $category->ads->where('type', $request->type)->sortByDesc('ad.created_at');
+        $mainCat = Category::all()->where('category_id', NULL);
+        $subCat = Category::all()->where('category_id', !NULL);
+        return view('annonces.index', compact('ads', 'mainCat', 'subCat', 'category'));
     }
 
     /**
@@ -48,7 +50,7 @@ class AdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Ads $ad)
+    public function show(Ad $ad)
     {
         return view('annonces.show', compact('ad'));
     }
@@ -84,21 +86,29 @@ class AdController extends Controller
      */
     public function destroy(Request $request)
     {
-        Ads::where('id', $request->id)->delete();
+        Ad::where('id', $request->id)->delete();
     }
 
 
     public function search(Request $request)
     {
         $categories = Category::with('ads.user')->where('id', $request->cat)->first();
-        $ads = $categories->ads->where('type', 'search')->sortByDesc('ad.created_at')->take(4);
+        if($request->nbr == '4'){
+            $ads = $categories->ads->where('type', 'search')->sortByDesc('ad.created_at')->take(4);
+        }else{
+            $ads = $categories->ads->where('type', 'search')->sortByDesc('ad.created_at');
+        }
         return response()->json($ads);
     }
 
     public function offer(Request $request)
     {
         $categories = Category::with('ads.user')->where('id', $request->cat)->first();
-        $ads = $categories->ads->where('type', 'offer')->sortByDesc('ad.created_at')->take(4);
+        if($request->nbr == '4'){
+            $ads = $categories->ads->where('type', 'offer')->sortByDesc('ad.created_at')->take(4);
+        }else{
+            $ads = $categories->ads->where('type', 'offer')->sortByDesc('ad.created_at');
+        }
         return response()->json($ads);
     }
 

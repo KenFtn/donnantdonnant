@@ -32,7 +32,7 @@ Route::resource('annonces', 'AdController')
 et sur la page index des annonces.*/ 
 Route::prefix('annonces')->group(function(){
     Route::get('voir/{ad?}', 'AdController@show')->name('annonces.show');
-    Route::get('{type?}', 'AdController@index')->name('annonces.index');
+    Route::post('', 'AdController@index')->name('annonces.index');
     Route::post('recherche', 'AdController@search')->name('annonces.search');
     Route::post('offre', 'AdController@offer')->name('annonces.offer');
     Route::post('/{ad?}', 'AdController@destroy')->name('annonces.destroy');

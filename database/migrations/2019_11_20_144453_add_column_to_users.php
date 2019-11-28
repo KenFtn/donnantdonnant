@@ -14,9 +14,9 @@ class AddColumnToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('path_avatar');
-            $table->integer('city_id')->unsigned();
-            $table->float('note');
+            $table->string('path_avatar')->nullable();
+            $table->integer('city_id')->unsigned()->nullage();
+            $table->float('note')->nullable();
             $table->foreign('city_id')
             ->references('id')->on('cities')
             ->onDelete('restrict');

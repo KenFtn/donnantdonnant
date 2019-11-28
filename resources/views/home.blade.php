@@ -61,13 +61,18 @@
             @csrf
             <button type="submit" class="btn-cat">{{$category->name}}</button>
             <input type="hidden" name="cat" value="{{$category->id}}">
+            <input type="hidden" name="nbr" value="4">
         </form>
         @endforeach
-        <a href={{route('annonces.index', 'search')}}>voir tout </a>
     </div>
 
     <div class="annoncesB">
-        
+        <form class="" action={{route('annonces.index')}} method=POST>
+            @csrf
+            <button type="submit" class="btn-cat">Voir tout</button>
+            <input type="hidden" name="cat" value="1">
+            <input type="hidden" name="type" value="search">
+        </form>
     </div>
 </section>
 
@@ -82,6 +87,7 @@
         <form class="formOffer">
             <button type="submit" class="btn-cat">{{$category->name}}</button>
             <input type="hidden" name="cat" value="{{$category->id}}">
+            <input type="hidden" name="nbr" value="4">
         </form>
         @endforeach
     </div>   

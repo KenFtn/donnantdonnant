@@ -9,8 +9,8 @@
             <label for="type">Type</label>
             <select name="type" id="type">
                 <option value="">Choisir le type de l'annonce</option>
-                <option value="search">Dog</option>
-                <option value="offer">Cat</option>
+                <option value="search">Je cherche un service</option>
+                <option value="offer">Je propose mes services</option>
             </select>
     </div>
 
@@ -28,7 +28,7 @@
 
     <div class="">
         <label for="desc" class="">Description de l'annonce</label>
-        <input id="desc" type="text-area" class="@error('password') is-invalid @enderror" name="desc" required autocomplete="desc">
+        <input id="desc" type="textarea" class="@error('password') is-invalid @enderror" name="desc" required autocomplete="desc">
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -37,13 +37,28 @@
     </div>
 
     <div class="">
-        <label for="password-confirm" class="">{{ __('Confirm Password') }}</label>
-        <input id="password-confirm" type="password" class="" name="password_confirmation" required autocomplete="new-password">
+        <label for="price" class="">Prix de l'annonce</label>
+        <input id="price" type="text" class="@error('password') is-invalid @enderror" name="price" required autocomplete="price">
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+    </div>
+
+    <div class="">
+        <label for="city" class="">Ou ?</label>
+        <input id="city" type="text" class="@error('password') is-invalid @enderror" name="city_id" required autocomplete="price">
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
     </div>
 
     <div class="">
         <button type="submit" class="btn btn-primary">
-            {{ __('Register') }}
+            Envoyer mon annonce
         </button>
                 
     </div>
