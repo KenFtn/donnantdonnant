@@ -50,8 +50,9 @@ class AdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Ad $ad)
+    public function show($id)
     {
+        $ad = Ad::findOrFail($id);
         return view('annonces.show', compact('ad'));
     }
 

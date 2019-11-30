@@ -2,6 +2,8 @@
 
 @section('content')
 
-BIJOUR
+    @foreach ($ads as $ad)
+        <a href='{{route('annonces.show', [$ad->id, $ad->slug])}}'> Lien </a>
+    @endforeach
 
 @endsection

@@ -67,7 +67,7 @@
     </div>
 
     <div class="annoncesB">
-        <form class="" action={{route('annonces.index')}} method=POST>
+        <form class="" action={{route('annonces.index')}} method="GET">
             @csrf
             <button type="submit" class="btn-cat">Voir tout</button>
             <input type="hidden" name="cat" value="1">
