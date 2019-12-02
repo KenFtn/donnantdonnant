@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDiscussionsUsersTable extends Migration
+class CreateDiscussionUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateDiscussionsUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('discussions_users', function (Blueprint $table) {
+        Schema::create('discussion_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->bigInteger('discussions_id')->unsigned()->nullable();
-            $table->bigInteger('users_id')->unsigned()->nullable();
-            $table->foreign('discussions_id')
+            $table->bigInteger('discussion_id')->unsigned()->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreign('discussion_id')
             ->references('id')
             ->on('discussions')
             ->ondelete('restrict')
@@ -38,12 +38,12 @@ class CreateDiscussionsUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('discussions_users', function (Blueprint $table) {
-            $table->dropForeign('dicussions_id');
-            $table->dropColumn('discussions_id');
+        Schema::table('discussion_user', function (Blueprint $table) {
+            $table->dropForeign('dicussion_id');
+            $table->dropColumn('discussion_id');
             $table->dropForeign('users_id');
             $table->dropColumn('users_id');
         });
-        Schema::dropIfExists('discussions_users');
+        Schema::dropIfExists('discussion_user');
     }
 }
