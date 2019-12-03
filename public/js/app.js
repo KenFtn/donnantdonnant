@@ -36939,8 +36939,8 @@ formBesoins.forEach(function (form) {
       const container = document.querySelector(".annoncesB");
       let url = document.querySelector('.hidden').getAttribute('href');
       console.log(url);
-          container.innerHTML = "";
-              for (var i = 0; i < 4; i++) {
+        container.innerHTML = "";
+             for (var i = 0; i < 4; i++) {
           var annonce = JSON.parse(reverse[i]);
           let newUrl = url.replace(/\/([0-9]+$)/g,"/"+annonce.id);
           container.innerHTML += 
@@ -36966,7 +36966,7 @@ formBesoins.forEach(function (form) {
           '</div>';            
       }
       var divs = document.querySelectorAll('.descr');
-        divs.forEach(p => {
+       divs.forEach(p => {
           
           if(p.innerHTML.length > 80)
           {
@@ -37363,8 +37363,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! A:\Sites\donnant-donnant\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! A:\Sites\donnant-donnant\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/ken/Documents/Sites/donnantdonnant/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/ken/Documents/Sites/donnantdonnant/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
