@@ -86,6 +86,7 @@
     <div class="catPeutetre">
         @foreach($categories as $category)
         <form class="formOffer">
+            @csrf
             <button type="submit" class="btn-cat">{{$category->name}}</button>
             <input type="hidden" name="cat" value="{{$category->id}}">
             <input type="hidden" name="nbr" value="4">

@@ -36936,7 +36936,7 @@ function ajaks(form, type) {
         url: '/annonces/' + type,
         data: formData
       }).then(function (response) {
-        console.log(response.data);
+        console.log(Object.values(response.data));
         /*
         const reverse = response.data.reverse();
         */
@@ -36944,9 +36944,8 @@ function ajaks(form, type) {
         var container = document.querySelector(".annoncesB");
         var url = document.querySelector('.hidden').getAttribute('href');
         container.innerHTML = ""; // for (var i = 0; i < 4; i++) {
-        //     var annonce = JSON.parse(reverse[i]);
 
-        response.data.forEach(function (data) {
+        response.data.foreach(function (data) {
           console.log(data.title);
           var newUrl = url.replace(/\/([0-9]+$)/g, "/" + data.id);
           container.innerHTML += '<div class="annonce">' + '<div class="head">' + '<img src="./img/jacky.jpg" alt="">' + '<div class="nameStar">' + '<p class="nam">' + data.user.name + '</p>' + '<div class="my-rating" data-rating="' + data.user.note + '"></div>' + '</div>' + '</div>' + '<div class="body">' + '<h3>' + data.title + '</h3>' + '<p class="descr">' + data.desc + '</p>' + '</div>' + '<div class="price">' + '<div class="pricon">' + '<p>' + data.price + '</p>' + '<img src="./img/jewel.png" alt="">' + '</div>' + '<a href="' + newUrl + '") }}">Voir l\'annonce</a>' + '</div>' + '</div>';
