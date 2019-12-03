@@ -23,7 +23,7 @@ class CreateDiscussionUserTable extends Migration
             ->on('discussions')
             ->ondelete('restrict')
             ->nullable();
-            $table->foreign('users_id')
+            $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->ondelete('restrict')
@@ -41,8 +41,8 @@ class CreateDiscussionUserTable extends Migration
         Schema::table('discussion_user', function (Blueprint $table) {
             $table->dropForeign('dicussion_id');
             $table->dropColumn('discussion_id');
-            $table->dropForeign('users_id');
-            $table->dropColumn('users_id');
+            $table->dropForeign('user_id');
+            $table->dropColumn('user_id');
         });
         Schema::dropIfExists('discussion_user');
     }
