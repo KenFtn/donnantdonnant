@@ -42,6 +42,10 @@
                 </div>
 
                 <div class="">
+                    <input id="city_id" type="hidden" name="city_id" value="21345">
+                </div>
+
+                <div class="">
                     <label for="password-confirm" class="">{{ __('Confirm Password') }}</label>
                     <input id="password-confirm" type="password" class="" name="password_confirmation" required autocomplete="new-password">
                 </div>

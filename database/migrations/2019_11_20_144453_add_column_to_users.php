@@ -14,8 +14,8 @@ class AddColumnToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('path_avatar')->nullable();
-            $table->integer('city_id')->unsigned()->nullage();
+            $table->string('cagnotte');
+            $table->integer('city_id')->unsigned()->nullable();
             $table->float('note')->nullable();
             $table->foreign('city_id')
             ->references('id')->on('cities')
@@ -33,7 +33,7 @@ class AddColumnToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign('city_id');
             $table->dropColumn('city_id');
-            $table->dropColumn('path_avatar');
+            
             $table->dropColumn('note');
         });
     }
