@@ -36919,76 +36919,61 @@ module.exports = function(module) {
 /***/ (function(module, exports) {
 
 var formBesoins = document.querySelectorAll('.formBesoin');
-formBesoins.forEach(function (form) {
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var formData = new FormData(this);
-    axios({
-      headers: {
-        "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-        "X-CSRF-Token": document.head.querySelector("[name=csrf-token][content]").content
-      },
-      method: 'post',
-      url: '/annonces/recherche',
-      data: formData
-    }).then(function (response) {
-      console.log(response.data);
-      /*
-      const reverse = response.data.reverse();
-      const container = document.querySelector(".annoncesB");
-      let url = document.querySelector('.hidden').getAttribute('href');
-      console.log(url);
-          container.innerHTML = "";
-              for (var i = 0; i < 4; i++) {
-          var annonce = JSON.parse(reverse[i]);
-          let newUrl = url.replace(/\/([0-9]+$)/g,"/"+annonce.id);
-          container.innerHTML += 
-          '<div class="annonce">'+
-              '<div class="head">'+
-                  '<img src="./img/jacky.jpg" alt="">'+
-                  '<div class="nameStar">'+
-                      '<p class="nam">Jacky</p>'+
-                      '<div class="my-rating" data-rating="4.2324"></div>'+
-                  '</div>'+
-              '</div>'+
-              '<div class="body">'+
-                  '<h3>' + annonce.title + '</h3>'+
-                  '<p class="descr">' + annonce.desc + '</p>'+
-              '</div>'+
-              '<div class="price">'+
-                  '<div class="pricon">'+
-                      '<p>' + annonce.price + '</p>'+
-                      '<img src="./img/jewel.png" alt="">'+
-                  '</div>'+  
-                  '<a href="'+ newUrl +'") }}">Voir l\'annonce</a>'+
-              '</div>'+
-          '</div>';            
-      }
-      var divs = document.querySelectorAll('.descr');
-        divs.forEach(p => {
-          
-          if(p.innerHTML.length > 80)
-          {
-              p.innerHTML = p.innerHTML.substring(0,80) + '...';          
-          }
-          
-      });
-      })*/
+var formOffer = document.querySelectorAll('.formOffer');
 
-      $(".my-rating").starRating({
-        totalStars: 5,
-        starShape: 'rounded',
-        starSize: 18,
-        emptyColor: 'lightgray',
-        hoverColor: 'red',
-        activeColor: 'orange',
-        useGradient: false,
-        readOnly: true
+function ajaks(form, type) {
+  form.forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+      axios({
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-Token": document.head.querySelector("[name=csrf-token][content]").content
+        },
+        method: 'post',
+        url: '/annonces/' + type,
+        data: formData
+      }).then(function (response) {
+        console.log(response.data);
+        /*
+        const reverse = response.data.reverse();
+        */
+
+        var container = document.querySelector(".annoncesB");
+        var url = document.querySelector('.hidden').getAttribute('href');
+        container.innerHTML = ""; // for (var i = 0; i < 4; i++) {
+        //     var annonce = JSON.parse(reverse[i]);
+
+        response.data.forEach(function (data) {
+          console.log(data.title);
+          var newUrl = url.replace(/\/([0-9]+$)/g, "/" + data.id);
+          container.innerHTML += '<div class="annonce">' + '<div class="head">' + '<img src="./img/jacky.jpg" alt="">' + '<div class="nameStar">' + '<p class="nam">' + data.user.name + '</p>' + '<div class="my-rating" data-rating="' + data.user.note + '"></div>' + '</div>' + '</div>' + '<div class="body">' + '<h3>' + data.title + '</h3>' + '<p class="descr">' + data.desc + '</p>' + '</div>' + '<div class="price">' + '<div class="pricon">' + '<p>' + data.price + '</p>' + '<img src="./img/jewel.png" alt="">' + '</div>' + '<a href="' + newUrl + '") }}">Voir l\'annonce</a>' + '</div>' + '</div>';
+        });
+        $(".my-rating").starRating({
+          totalStars: 5,
+          starShape: 'rounded',
+          starSize: 18,
+          emptyColor: 'lightgray',
+          hoverColor: 'red',
+          activeColor: 'orange',
+          useGradient: false,
+          readOnly: true
+        });
+        var divs = document.querySelectorAll('.descr');
+        divs.forEach(function (p) {
+          if (p.innerHTML.length > 80) {
+            p.innerHTML = p.innerHTML.substring(0, 80) + '...';
+          }
+        });
       });
     });
   });
-});
+}
+
+ajaks(formBesoins, "recherche");
+ajaks(formOffer, "offre");
 
 /***/ }),
 
@@ -37001,9 +36986,43 @@ formBesoins.forEach(function (form) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./jquery.star-rating-svg */ "./resources/js/jquery.star-rating-svg.js");
-
 __webpack_require__(/*! ./ajax */ "./resources/js/ajax.js");
+
+__webpack_require__(/*! ./jquery.star-rating-svg */ "./resources/js/jquery.star-rating-svg.js");
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+
+$(".my-rating-6").starRating({
+  totalStars: 5,
+  starShape: 'rounded',
+  starSize: 40,
+  emptyColor: 'lightgray',
+  hoverColor: 'red',
+  activeColor: 'red',
+  useGradient: false
+});
+var menubtn = document.querySelector('.menubtn');
+var blanc = document.querySelector('.menumobile');
+var noir = document.querySelector('.a');
+var noirA = "aActive";
+var blancA = "menumobileActive";
+menubtn.addEventListener('click', function () {
+  if (!blanc.classList.contains(blancA)) {
+    blanc.classList.add(blancA);
+    setTimeout(function () {
+      noir.classList.toggle(noirA);
+    }, 180);
+  } else {
+    noir.classList.toggle(noirA);
+    setTimeout(function () {
+      blanc.classList.remove(blancA);
+    }, 180);
+  }
+});
 
 /***/ }),
 
@@ -37363,8 +37382,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! A:\Sites\donnant-donnant\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! A:\Sites\donnant-donnant\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/thibaultmalik/www/donnantdo/donnantdonnant/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/thibaultmalik/www/donnantdo/donnantdonnant/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

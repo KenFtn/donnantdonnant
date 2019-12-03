@@ -8,18 +8,67 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Donnant Donnant</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css">
     <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/star-rating-svg.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    <div class="menubtn">
+        <div class="baton"></div>
+        <div class="baton"></div>
+        <div class="baton"></div>
+    </div>
+    <div class="menumobile">
+        <nav>
+            <div class="a">
+                <a class="aLogo" href="{{ url('/') }}">
+                    <img src="./img/logo.png" alt="Logo donnant donnant">
+                </a>
+                <ul class="fullnav">
+                    <li><a href={{route('annonces.create')}}>Poster une annonce</a></li>
+                        <!-- Authentication Links -->
+                    @guest
+                    <li class="">
+                        <a class="" href="{{ route('login') }}">Connexion</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="">
+                            <a class="" href="{{ route('register') }}">Inscription</a>
+                        </li>
+                    @endif
+                    @else
+                        <li class="">
+                        <a class="" href="{{ route('user.show', Auth::user()->slug)}}" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <div class="">
+                                <a class="" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    Se deconnecter
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                        <li><a href="">J'ai besoin d'aide</a></li>
+                        <li><a href="">Je propose mon aide</a></li>
+                        <li><a href="">Comment ça marche ?</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
     <div id="app">
         <nav>
             <div class="c">
@@ -87,5 +136,8 @@
             <p class="copyright">copyright © Donnant-Donnant 2019. All rights reserved</p>
         </footer>
     </div>
+    <script src="https://kit.fontawesome.com/0b3a13e271.js" crossorigin="anonymous"></script>
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

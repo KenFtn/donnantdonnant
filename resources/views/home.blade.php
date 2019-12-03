@@ -67,13 +67,14 @@
     </div>
 
     <div class="annoncesB">
-        <form class="" action={{route('annonces.index')}} method="GET">
-            @csrf
-            <button type="submit" class="btn-cat">Voir tout</button>
-            <input type="hidden" name="cat" value="1">
-            <input type="hidden" name="type" value="search">
-        </form>
     </div>
+        <a class="hidden" style="display:none;"href="{{ route('annonces.show', 0) }}">a</a>
+            <form class="" action={{route('annonces.index')}} method="GET">
+                @csrf
+                <button type="submit" class="seeAll">Voir toutes les annonces</button>
+                <input type="hidden" name="cat" value="1">
+                <input type="hidden" name="type" value="search">
+            </form>
 </section>
 
 <section class="peutetre">

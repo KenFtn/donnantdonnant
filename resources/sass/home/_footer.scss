@@ -94,13 +94,48 @@ footer
     footer
     {
         height : auto;
+        flex-direction: column;
         img
         {
             position: absolute;
-            height : 300px;
-            right : 0 !important;
-            bottom : -28%;
+            height : 350px;
+            right : -50% !important;
+            bottom : -13%;
             z-index: 1;
+        }
+        .left
+        {
+            height: 100%;
+            width : 100%;
+            padding-top: 50px;
+            padding-left: 20px;
+            padding-right: 20px;
+            
+            p:nth-child(1)
+            {
+                margin-bottom: 10px;
+            }
+            p:nth-child(2)
+            {
+                margin-bottom: 30px;
+            }
+            p:nth-child(3)
+            {
+                font-size: 1.1rem;
+            }
+        }
+        .right
+        {
+            padding-top: 0px;
+            width : 95%;
+            position: relative;
+            z-index: 30;
+            padding-bottom: 90px;
+            padding-left: 20px;
+        }
+        .copyright
+        {
+            padding-left: 20px;
         }
     }
 }
