@@ -36,7 +36,4 @@ Route::prefix('annonces')->group(function(){
     Route::post('recherche', 'AdController@search')->name('annonces.search');
     Route::post('offre', 'AdController@offer')->name('annonces.offer');
     Route::post('/{ad?}', 'AdController@destroy')->name('annonces.destroy');
-    Route::get('/search/{categories?}', 'AdController@indexByType')->name('annonces.indexByType');
 });
-
-Route::post('searchA', 'Adcontroller@ajaxSearch')->name('ajaxSearch');

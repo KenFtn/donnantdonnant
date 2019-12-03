@@ -40,7 +40,7 @@
                         @endif
                         @else
                             <li class="">
-                            <a class="" href="{{ route('user.show', Auth::user())}}" v-pre>
+                            <a class="" href="{{ route('user.show', Auth::user()->name)}}" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
