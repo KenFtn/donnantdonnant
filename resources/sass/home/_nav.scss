@@ -1,3 +1,11 @@
+.menubtn
+{
+    display : none;
+}
+.menumobile
+{
+    display: none;
+}
 .c
 {
     @include flex(row, space-between, center);
