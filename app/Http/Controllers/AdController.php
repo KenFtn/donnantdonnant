@@ -99,16 +99,17 @@ class AdController extends Controller
         }else{
             $ads = $categories->ads->where('type', 'search')->sortByDesc('ad.created_at');
         }
-        return response()->json($ads);
+        return response($ads);
     }
 
     public function offer(Request $request)
     {
         $categories = Category::with('ads.user')->where('id', $request->cat)->first();
+        $ads = [];
         if($request->nbr == '4'){
-            $ads = $categories->ads->where('type', 'offer')->sortByDesc('ad.created_at')->take(4);
+            $ads = $categories->ads->where('type', 'woffer')->sortByDesc('ad.created_at')->take(4);
         }else{
-            $ads = $categories->ads->where('type', 'offer')->sortByDesc('ad.created_at');
+            $ads = $categories->ads->where('type', 'woffer')->sortByDesc('ad.created_at');
         }
         return response()->json($ads);
     }

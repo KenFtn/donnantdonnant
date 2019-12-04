@@ -16,7 +16,7 @@ function ajaks(form, type){
                 url:'/annonces/'+type,
                 data: formData
             }).then(response => {
-                console.log(response.data);
+                console.log(Object.values(response.data));
     
                 /*
                 const reverse = response.data.reverse();
@@ -26,9 +26,8 @@ function ajaks(form, type){
                 container.innerHTML = "";
                 
                 // for (var i = 0; i < 4; i++) {
-                //     var annonce = JSON.parse(reverse[i]);
     
-                response.data.forEach(data => {
+                response.data.foreach(data => {
                     console.log(data.title);
     
                     let newUrl = url.replace(/\/([0-9]+$)/g,"/"+data.id);
