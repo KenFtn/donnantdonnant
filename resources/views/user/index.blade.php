@@ -5,13 +5,13 @@
 <br><br><br><br><br><br>
 Nom de l'utilisateur : {{$user->name}}<br>
 Ville de l'utilisateur : {{$user->cities->name}}<br>
-Mes points : {{$user->cagnotte}}<br>
-
-Mes commentaires :
+Ses points : {{$user->cagnotte}}<br>
+Sa note : {{$user->note}}<br>
+<h2>Ses commentaires :</h2>
 @foreach($user->comments as $comment)
 contenue : {{$comment->content}}
 auteur : {{$comment->author->name}}
-
+<br>
 @endforeach
 
 <h1>Ajouter un commentaire</h1>

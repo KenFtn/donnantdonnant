@@ -36921,7 +36921,7 @@ module.exports = function(module) {
 var formBesoins = document.querySelectorAll('.formBesoin');
 var formOffer = document.querySelectorAll('.formOffer');
 
-function ajaks(form, type) {
+function ajaks(form, type, div) {
   form.forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -36936,16 +36936,17 @@ function ajaks(form, type) {
         url: '/annonces/' + type,
         data: formData
       }).then(function (response) {
-        console.log(Object.values(response.data));
+        var annonces = Object.values(response.data);
+        console.log(annonces);
         /*
         const reverse = response.data.reverse();
         */
 
-        var container = document.querySelector(".annoncesB");
+        var container = document.querySelector(div);
         var url = document.querySelector('.hidden').getAttribute('href');
         container.innerHTML = ""; // for (var i = 0; i < 4; i++) {
 
-        response.data.foreach(function (data) {
+        annonces.forEach(function (data) {
           console.log(data.title);
           var newUrl = url.replace(/\/([0-9]+$)/g, "/" + data.id);
           container.innerHTML += '<div class="annonce">' + '<div class="head">' + '<img src="./img/jacky.jpg" alt="">' + '<div class="nameStar">' + '<p class="nam">' + data.user.name + '</p>' + '<div class="my-rating" data-rating="' + data.user.note + '"></div>' + '</div>' + '</div>' + '<div class="body">' + '<h3>' + data.title + '</h3>' + '<p class="descr">' + data.desc + '</p>' + '</div>' + '<div class="price">' + '<div class="pricon">' + '<p>' + data.price + '</p>' + '<img src="./img/jewel.png" alt="">' + '</div>' + '<a href="' + newUrl + '") }}">Voir l\'annonce</a>' + '</div>' + '</div>';
@@ -36971,8 +36972,8 @@ function ajaks(form, type) {
   });
 }
 
-ajaks(formBesoins, "recherche");
-ajaks(formOffer, "offre");
+ajaks(formBesoins, "recherche", ".annoncesB");
+ajaks(formOffer, "offre", ".annoncesP");
 
 /***/ }),
 
@@ -37412,8 +37413,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/thibaultmalik/www/donnantdo/donnantdonnant/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/thibaultmalik/www/donnantdo/donnantdonnant/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/ken/Documents/Sites/donnantdonnant/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/ken/Documents/Sites/donnantdonnant/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

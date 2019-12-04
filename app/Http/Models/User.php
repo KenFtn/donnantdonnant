@@ -46,6 +46,6 @@ class User extends \TCG\Voyager\Models\User
     }
 
     public function comments(){
-        return $this->hasMany(Comment::class, 'author_id','id');
+        return $this->hasMany(Comment::class, 'user_id','id');
     }
 }

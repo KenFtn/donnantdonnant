@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Comment;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -15,7 +16,7 @@ class UsersController extends Controller
      */
     public function index($id)
     {
-        $user = User::whereId($id)->first();
+        $user = User::whereId($id)->with('comments.author')->first();
         return view('user.index', compact('user'));
     }
 
@@ -48,6 +49,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
+        $user = User::whereId(Auth::user()->id)->with('comments.author')->first();
         return view('user.show', compact('user'));
     }
 
