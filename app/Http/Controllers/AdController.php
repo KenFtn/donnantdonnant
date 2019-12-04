@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Ad;
 use App\Models\Category;
 use App\Models\User;
+use Auth;
 
 class AdController extends Controller
 {
@@ -41,7 +43,16 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Ad::create([
+            'city_id' => $request->city_id,
+            'type' => $request->type,
+            'author_id' => Auth::user()->id,
+            'status' => '0',
+            'price' => $request->price,
+            'title' => $request->title,
+            'desc' => $request->desc,
+            'slug' => Str::slug($request->title .' ' . Auth::user()->id, '-'),
+        ]);
     }
 
     /**

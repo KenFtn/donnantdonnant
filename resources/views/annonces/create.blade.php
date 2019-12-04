@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+<br><br><br><br>
 <h1> Formulaire de création d'une annonce : </h1>
-<form method="POST" action="{{ route('annonces.create') }}">
+<form method="POST" action="{{ route('annonces.store') }}">
     @csrf
     <div class="">
             <label for="type">Type</label>

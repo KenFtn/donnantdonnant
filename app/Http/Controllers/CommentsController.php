@@ -26,6 +26,6 @@ class CommentsController extends Controller
         $moyenne = array_sum($notes) / count($notes);
         $user->note = floatval($moyenne);
         $user->save();
-        return view('user.debug', compact('user'));
+        return response()->json($comment);
     }
 }
