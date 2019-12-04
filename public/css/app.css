@@ -12979,11 +12979,66 @@ footer .copyright {
   letter-spacing: 1px;
 }
 
+.mainLog .winLog .droiteLog {
+  width: 50%;
+  padding: 30px 90px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  position: relative;
+}
+
 .mainLog .winLog .droiteLog a img {
   height: 90px;
   width: auto;
   -o-object-fit: contain;
      object-fit: contain;
-  margin-left: 40px;
+  margin-left: 0px;
+  margin-bottom: 20px;
+}
+
+.mainLog .winLog .droiteLog form {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.mainLog .winLog .droiteLog form div {
+  width: 100%;
+}
+
+.mainLog .winLog .droiteLog form label {
+  font-size: .8rem;
+  margin-left: 15px;
+}
+
+.mainLog .winLog .droiteLog form input {
+  width: 100%;
+  color: #353535;
+  border-radius: 25px;
+  height: 45px;
+  border: none;
+  background-color: #ebebf5;
+}
+
+.mainLog .winLog .droiteLog form .btn button {
+  margin-top: 30px;
+  border-radius: 25px;
+  background: linear-gradient(245deg, rgba(251, 2, 57, 0.8) 0%, rgba(252, 121, 55, 0.8) 39%, rgba(255, 191, 50, 0.9) 100%);
+  border: 5px solid white;
+  box-shadow: 0px 10px 19px -10px rgba(0, 0, 0, 0.75);
+  padding: 10px 60px;
+  text-align: center;
 }
 
