@@ -28,8 +28,8 @@ class AppServiceProvider extends ServiceProvider
             return auth()->user()->role == '1';
         });
 
-        Blade::if('request', function ($url) {
-            return request()->is($url);
+        Blade::if('request', function ($url, $url2=NULL) {
+            return request()->is($url, $url2);
         });
     }
 }

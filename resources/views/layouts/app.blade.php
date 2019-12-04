@@ -19,6 +19,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+@request('register', 'login')
+@else
     <div class="menubtn">
         <div class="baton"></div>
         <div class="baton"></div>
@@ -115,30 +117,33 @@
                 </div>
             </div>
         </nav>
-
+@endrequest
         <main>
             @yield('content')
         </main>
+        @request('register', 'login')
+        @else
         <footer>
-            <img src="./img/footerdogopacity.png" alt="">
-            <div class="left">
-                <p>Donnant Donnant, une bonne raison de s'entraider !</p>
-                <p>Donnant Donnant est un réseau d'entraide qui met en relation des personnes afin qu'elles puissent se rendre des services de manière totalement gratuite à hauteur de leur compétences.</p>
-                <p>Donnant Donnant, 4 rue fictive , 62000 Calais. <br>
-                    0320304020<br>contact@donnant-donnant.fr</p>
-            </div>
-            <div class="right">
-                <p>Donnant Donnant</p>
-                <ul>
-                    <li><i class='fas fa-arrow-right'></i><a href="">Inscription</a></li>
-                    <li><i class='fas fa-arrow-right'></i><a href="">Poster une annonce</a></li>
-                    <li><i class='fas fa-arrow-right'></i><a href="">J'ai besoin d'aide</a></li>
-                    <li><i class='fas fa-arrow-right'></i><a href="">Je propose mon aide</a></li>
-                    <li><i class='fas fa-arrow-right'></i><a href="">Comment ça marche ?</a></li>
-                </ul>
-            </div>
-            <p class="copyright">copyright © Donnant-Donnant 2019. All rights reserved</p>
-        </footer>
+        <img src="./img/footerdogopacity.png" alt="">
+        <div class="left">
+            <p>Donnant Donnant, une bonne raison de s'entraider !</p>
+            <p>Donnant Donnant est un réseau d'entraide qui met en relation des personnes afin qu'elles puissent se rendre des services de manière totalement gratuite à hauteur de leur compétences.</p>
+            <p>Donnant Donnant, 4 rue fictive , 62000 Calais. <br>
+                0320304020<br>contact@donnant-donnant.fr</p>
+        </div>
+        <div class="right">
+            <p>Donnant Donnant</p>
+            <ul>
+                <li><i class='fas fa-arrow-right'></i><a href="">Inscription</a></li>
+                <li><i class='fas fa-arrow-right'></i><a href="">Poster une annonce</a></li>
+                <li><i class='fas fa-arrow-right'></i><a href="">J'ai besoin d'aide</a></li>
+                <li><i class='fas fa-arrow-right'></i><a href="">Je propose mon aide</a></li>
+                <li><i class='fas fa-arrow-right'></i><a href="">Comment ça marche ?</a></li>
+            </ul>
+        </div>
+        <p class="copyright">copyright © Donnant-Donnant 2019. All rights reserved</p>
+    </footer>
+    @endrequest
     </div>
     <script src="https://kit.fontawesome.com/0b3a13e271.js" crossorigin="anonymous"></script>
 
