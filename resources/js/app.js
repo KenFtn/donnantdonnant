@@ -1,5 +1,6 @@
 require('./bootstrap');
 require ('./ajax');
+require ('./ajaxComment');
 require('./jquery.star-rating-svg');
 
 

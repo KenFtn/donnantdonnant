@@ -41,3 +41,6 @@ Route::prefix('annonces')->group(function(){
     Route::post('offre', 'AdController@offer')->name('annonces.offer');
     Route::post('/{ad?}', 'AdController@destroy')->name('annonces.destroy');
 });
+
+/*Route pour les commentaires*/
+Route::post('comment/store', 'CommentsController@store')->name('comment.store');

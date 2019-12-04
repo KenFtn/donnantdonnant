@@ -36976,6 +36976,35 @@ ajaks(formOffer, "offre");
 
 /***/ }),
 
+/***/ "./resources/js/ajaxComment.js":
+/*!*************************************!*\
+  !*** ./resources/js/ajaxComment.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var formComment = document.querySelectorAll('.formComment');
+formComment.forEach(function (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    axios({
+      headers: {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-CSRF-Token": document.head.querySelector("[name=csrf-token][content]").content
+      },
+      method: 'post',
+      url: '/comment/store',
+      data: formData
+    }).then(function (response) {
+      console.log(Object.values(response.data));
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -36986,6 +37015,8 @@ ajaks(formOffer, "offre");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./ajax */ "./resources/js/ajax.js");
+
+__webpack_require__(/*! ./ajaxComment */ "./resources/js/ajaxComment.js");
 
 __webpack_require__(/*! ./jquery.star-rating-svg */ "./resources/js/jquery.star-rating-svg.js");
 /**

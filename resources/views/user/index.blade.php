@@ -9,7 +9,20 @@ Mes points : {{$user->cagnotte}}<br>
 
 Mes commentaires :
 @foreach($user->comments as $comment)
-{$comment->text}
+contenue : {{$comment->content}}
+auteur : {{$comment->author->name}}
 
 @endforeach
+
+<h1>Ajouter un commentaire</h1>
+<form class="formComment">
+    @csrf
+        <label for="content" class="">Mon Commentaire</label>
+        <input id="content" type="textarea" name="content" value="{{ old('content') }}" required autocomplete="content">
+        <label for="note" class=''>Assignez une note à cette utilisateur</label>
+        <input id='note' type='text' name='note'>
+        <input id='author_id' type='hidden' name='author_id' value={{Auth::user()->id}}>
+        <input id='user_id' type='hidden' name='user_id' value="{{$user->id}}">
+        <button type='submit'>Envoyer</button>
+</form>
 @endsection
