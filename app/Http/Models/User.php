@@ -44,4 +44,8 @@ class User extends \TCG\Voyager\Models\User
     public function cities(){
         return $this->hasOne(Cities::class, 'id', 'city_id');
     }
+
+    public function comments(){
+        return $this->hasMany(Comment::class, 'author_id','id');
+    }
 }

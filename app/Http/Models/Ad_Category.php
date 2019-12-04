@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ad_Category extends Model
 {
+    protected $fillable = [
+        'category_id',
+        'ad_id',
+    ];
+    
     public function category_id(){
         return $this->hasOne(Category::class); 
     }

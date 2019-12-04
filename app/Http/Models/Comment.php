@@ -12,4 +12,8 @@ class Comment extends Model
         'user_id',
         'note',
     ];
+
+    public function author(){
+        return $this->belongsTo(User::class, 'id', 'author_id');
+    }
 }
