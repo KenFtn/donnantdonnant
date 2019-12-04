@@ -31,7 +31,7 @@
                     <img src="./img/logo.png" alt="Logo donnant donnant">
                 </a>
                 <ul class="fullnav">
-                    <li><a href={{route('annonces.create')}}>Poster une annonce</a></li>
+                    <li><a class=""href={{route('annonces.create')}}>Poster une annonce</a></li>
                         <!-- Authentication Links -->
                     @guest
                     <li class="">
@@ -76,27 +76,30 @@
                     <img src="./img/logo.png" alt="Logo donnant donnant">
                 </a>
                 <ul class="">
-                <li><a href={{route('annonces.create')}}>Poster une annonce</a></li>
+                <li><div class="poster"><a href={{route('annonces.create')}}>Poster une annonce</a></div></li>
                         <!-- Authentication Links -->
                     @guest
                         <li class="">
-                            <a class="" href="{{ route('login') }}">Connexion</a>
+                            <a class="login" href="{{ route('login') }}">Connexion</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="">
-                                <a class="" href="{{ route('register') }}">Inscription</a>
+                                <a class="login" href="{{ route('register') }}">Inscription</a>
                             </li>
                         @endif
                         @else
-                            <li class="">
-                            <a class="" href="{{ route('user.show', Auth::user()->name)}}" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                        <div class="bonjour">
+                            <p>Bonjour, <span class="userName">{{ Auth::user()->name }} !</span><i class="fas fa-sort-down"></i></p>
+                            <img src="./img/{{ Auth::user()->avatar }}" alt="Photo de profil">
+                            <div class="miniMenu">
+                                <a class="" href="{{ route('user.show', Auth::user()->name)}}" v-pre>
+                                    Mon profil<span class="caret"></span>
                                 </a>
-
+    
                                 <div class="">
                                     <a class="" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
                                         Se deconnecter
                                     </a>
 
@@ -104,7 +107,8 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            </div>
+                        </div>        
                         @endguest
   
                     </ul>

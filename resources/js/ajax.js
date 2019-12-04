@@ -1,7 +1,7 @@
 const formBesoins = document.querySelectorAll('.formBesoin');
 const formOffer = document.querySelectorAll('.formOffer');
 
-function ajaks(form, type){
+function ajaks(form, type, div){
     form.forEach(form => {
         form.addEventListener('submit', function(e){
             e.preventDefault();
@@ -16,18 +16,18 @@ function ajaks(form, type){
                 url:'/annonces/'+type,
                 data: formData
             }).then(response => {
-                console.log(Object.values(response.data));
-    
+                var annonces = Object.values(response.data);
+                console.log(annonces);
                 /*
                 const reverse = response.data.reverse();
                 */
-                const container = document.querySelector(".annoncesB");
+                const container = document.querySelector(div);
                 let url = document.querySelector('.hidden').getAttribute('href');
                 container.innerHTML = "";
                 
                 // for (var i = 0; i < 4; i++) {
     
-                response.data.foreach(data => {
+                annonces.forEach(data => {
                     console.log(data.title);
     
                     let newUrl = url.replace(/\/([0-9]+$)/g,"/"+data.id);
@@ -80,5 +80,5 @@ function ajaks(form, type){
     });
 }    
 
-ajaks(formBesoins, "recherche");
-ajaks(formOffer, "offre");
+ajaks(formBesoins, "recherche", ".annoncesB");
+ajaks(formOffer, "offre", ".annoncesP");
