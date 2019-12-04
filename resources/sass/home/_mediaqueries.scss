@@ -46,15 +46,62 @@
         {
             a
             {
-                text-align: center;
-                color : white;
-                background-color: $orange;
-                padding : 12px 3px;
-                width : 258px;
-                border-radius: 8px;
-                font-style: italic;
-                font-weight: 600;
-                font-size: 1.2rem;
+                div
+                {
+                    position: relative;
+                    background-color: $orange;
+                    height : 70px;
+                    width : 300px;
+                    border-radius: 8px;
+                    transition: .3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: .5s;
+                    overflow: hidden;
+    
+                    p
+                    {
+                        text-align: center;
+                        color : white;
+                        font-style: italic;
+                        font-weight: 600;
+                        font-size: 1.4rem;
+                        transition: .3s;
+                        margin : 0;
+                        z-index: 30;
+                        position : relative;
+                        transition: .3s;
+                    }
+                }
+                div::before
+                {
+                    content : "";
+                    position : absolute;
+                    z-index: 0;
+                    top : 0;
+                    
+                    width : 8%;
+                    height : 100%;
+                    background-color: rgb(255, 202, 57);
+                    transform: skew(-17deg);
+                }
+                div::after
+                {
+                    content : "";
+                    position : absolute;
+                    z-index: 0;
+                    top : 0;
+                    
+                    width : 14%;
+                    height : 100%;
+                    background-color: rgb(255, 202, 57);
+                    transform: skew(-17deg);
+                }
+            }
+            a:hover
+            {
+                text-decoration: none;
             }
         }
     }
@@ -107,7 +154,7 @@
                 }
             }
         }
-        .annoncesB
+        .annoncesP
         {       
             width : 80%;        
             margin : 0 10% 60px 10%;
@@ -158,6 +205,17 @@
     .besoin
     { 
         .annoncesB
+        {       
+            .annonce
+            {
+                width : 160px;
+                height : 370px;
+            }
+        }
+    }
+    .peutetre
+    { 
+        .annoncesP
         {       
             .annonce
             {
@@ -266,7 +324,7 @@
             height : 170px;
             margin : 0 21% 60px 21%;
         }
-        .annoncesB
+        .annoncesP
         {       
             width : 58%;        
             margin : 0 21% 60px 21%;
@@ -438,19 +496,65 @@
             z-index: 2;
             padding : 0 80px;
 
-
             a
             {
-                text-align: center;
-                color : white;
-                background-color: $orange;
-                padding : 14px 13px;
-                width : 300px;
-                border-radius: 8px;
-                font-style: italic;
-                font-weight: 600;
-                font-size: 1.4rem;
-                margin-bottom: 40px;
+                margin-bottom: 50px;
+                div
+                {
+                    position: relative;
+                    background-color: $orange;
+                    height : 70px;
+                    width : 280px;
+                    border-radius: 8px;
+                    transition: .3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: .5s;
+                    overflow: hidden;
+
+                    p
+                    {
+                        text-align: center;
+                        color : white;
+                        font-style: italic;
+                        font-weight: 600;
+                        font-size: 1.4rem;
+                        transition: .3s;
+                        margin : 0;
+                        z-index: 30;
+                        position : relative;
+                        transition: .3s;
+                    }
+                }
+                div::before
+                {
+                    content : "";
+                    position : absolute;
+                    z-index: 0;
+                    top : 0;
+                    
+                    width : 8%;
+                    height : 100%;
+                    background-color: rgb(255, 202, 57);
+                    transform: skew(-17deg);
+                }
+                div::after
+                {
+                    content : "";
+                    position : absolute;
+                    z-index: 0;
+                    top : 0;
+                    
+                    width : 14%;
+                    height : 100%;
+                    background-color: rgb(255, 202, 57);
+                    transform: skew(-17deg);
+                }
+            }
+            a:hover
+            {
+                text-decoration: none;
             }
         }
         .bandeNoire
@@ -495,10 +599,30 @@
                 padding : 0 10px;
             }
         }
-        .seeAllP
+        .seeAll
         {
             @include absolute(auto, 70%, auto, 50%);
             text-align: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 350px)
+{
+    .entete
+    {
+        .twoBtn
+        {
+            a
+            {
+                div
+                {
+     
+                    height : 56px;
+                    width : 280px;
+                   
+                }
+            }
         }
     }
 }

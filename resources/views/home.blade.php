@@ -6,8 +6,8 @@
     <div class="gradient"></div>
     <h1>Vous allez adorer<br>partager !</h1>
     <div class='twoBtn'>
-        <a href="{{ route('annonces.create', 'search')}}">J'ai besoin d'aide !</a>
-        <a href="{{route('annonces.create', 'propose')}}">Je propose mon aide !</a>
+        <a href="{{ route('annonces.create', 'search')}}"><div><p>J'ai besoin d'aide !</p></div></a>
+       <a href="{{route('annonces.create', 'propose')}}"><div><p>Je propose mon aide !</p></div></a>
     </div>
     <div class="bandeNoire">
         <p>Partagez</p>
@@ -45,7 +45,7 @@
     </div>
     <p>Je n'attends plus</p>
     <div class="inscri">
-        <a href="{{ route('register') }}">Je m'inscris !</a>
+        <a href="{{ route('register') }}"><div><p>Je m'inscris !</p></div></a>
      </div>   
 </section>
 
@@ -93,5 +93,15 @@
         </form>
         @endforeach
     </div>   
+
+    <div class="annoncesP">
+    </div>
+        <a class="hidden" style="display:none;"href="{{ route('annonces.show', 0) }}">a</a>
+            <form class="" action={{route('annonces.index')}} method="GET">
+                @csrf
+                <button type="submit" class="seeAll">Voir toutes les annonces</button>
+                <input type="hidden" name="cat" value="1">
+                <input type="hidden" name="type" value="search">
+            </form>
 </section>
 @endsection
