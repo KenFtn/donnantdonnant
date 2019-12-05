@@ -11,7 +11,7 @@ class CommentsController extends Controller
 {
     public function store(Request $request)
     {
-        /* !!!!!!ATTENTION CHANGER LA TABLE USER POUR METTRE UNE VALEUR PAR DEFAUT A NOTE DANS USER */
+        /* !!!!!!ATTENTION CHANGER LA TABLE USER POUR METTRE UNE VALEUR PAR DEFAUT A NOTE DANS USER : MAJ : EN FAIT PAS SUR ....*/
         $comment = Comment::create([
             'content' => $request->content,
             'author_id' => $request->author_id,
