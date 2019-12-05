@@ -52,7 +52,7 @@ class AdController extends Controller
             'price' => $request->price,
             'title' => $request->title,
             'desc' => $request->desc,
-            'slug' => Str::slug($request->title .' ' . Auth::user()->id, '-'),
+            'slug' => Str::slug($request->title .' '. Auth::user()->id, '-'),
         ]);
     }
 
@@ -97,9 +97,9 @@ class AdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        Ad::where('id', $request->id)->delete();
+        Ad::where('id', $id)->delete();
     }
 
 
@@ -132,9 +132,13 @@ class AdController extends Controller
             'ad_id' => $request->ad_id,
             'user_id' => $request->user_id,
         ]);
-        return response()->json('sucess');
+        return response()->json(['success']);
     }
 
+    public function paiement(Request $request)
+    {
+        
+    }
     /** Fonction de debug ajax */
     public function deb(Request $request)
     {

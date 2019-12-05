@@ -51,9 +51,8 @@ class UsersController extends Controller
     public function show(User $user)
     {
         $user = User::whereId(Auth::user()->id)->with('comments.author')->first();
-        $ad = Ad::all()->where('author_id', Auth::user()->id);
-        dd($ad[0]->user);
-        return view('user.show', compact('user'));
+        $ads = Ad::all()->where('author_id', Auth::user()->id);
+        return view('user.show', compact(['user', 'ads']));
     }
 
     /**
