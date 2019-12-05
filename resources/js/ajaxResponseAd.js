@@ -1,5 +1,5 @@
-const formComment = document.querySelectorAll('.formComment');
-formComment.forEach(form => {
+const formResponse = document.querySelectorAll('.response');
+formResponse.forEach(form => {
     form.addEventListener('submit', function(e){
         e.preventDefault();
         const formData = new FormData(this);
@@ -10,7 +10,7 @@ formComment.forEach(form => {
                 "X-CSRF-Token": document.head.querySelector("[name=csrf-token][content]").content
             },
             method:'post',
-            url:'/comment/store',
+            url:'/annonces/responseAd',
             data: formData
         }).then(response => {
             console.log(Object.values(response.data));

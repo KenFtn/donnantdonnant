@@ -48,4 +48,9 @@ class User extends \TCG\Voyager\Models\User
     public function comments(){
         return $this->hasMany(Comment::class, 'user_id','id');
     }
+
+    public function adResponse()
+    {
+        return $this->belongsToMany(Ad::class);
+    }
 }

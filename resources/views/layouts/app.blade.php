@@ -30,7 +30,7 @@
         <nav>
             <div class="a">
                 <a class="aLogo" href="{{ url('/') }}">
-                    <img src="./img/logo.png" alt="Logo donnant donnant">
+                    <img src={{ asset('img/logo.png') }} alt="Logo donnant donnant">
                 </a>
                 <ul class="fullnav">
                     <li><a class=""href={{route('annonces.create')}}>Poster une annonce</a></li>
@@ -75,7 +75,7 @@
         <nav>
             <div class="c">
                 <a class="aLogo" href="{{ url('/') }}">
-                    <img src="./img/logo.png" alt="Logo donnant donnant">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo donnant donnant">
                 </a>
                 <ul class="">
                 <li><div class="poster"><a href={{route('annonces.create')}}>Poster une annonce</a></div></li>
@@ -92,7 +92,7 @@
                         @else
                         <div class="bonjour">
                             <p>Bonjour, <span class="userName">{{ Auth::user()->name }} !</span><i class="fas fa-sort-down"></i></p>
-                            <img src="./img/{{ Auth::user()->avatar }}" alt="Photo de profil">
+                            <img src="{{asset('img/' . Auth::user()->avatar)}}" alt="Photo de profil">
                             <div class="miniMenu">
                                 <a class="" href="{{ route('user.show', Auth::user()->name)}}" v-pre>
                                     Mon profil<span class="caret"></span>
@@ -124,7 +124,7 @@
         @request('register', 'login')
         @else
         <footer>
-        <img src="./img/footerdogopacity.png" alt="">
+        <img src="{{ asset('img/footerdogopacity.png') }}" alt="">
         <div class="left">
             <p>Donnant Donnant, une bonne raison de s'entraider !</p>
             <p>Donnant Donnant est un réseau d'entraide qui met en relation des personnes afin qu'elles puissent se rendre des services de manière totalement gratuite à hauteur de leur compétences.</p>

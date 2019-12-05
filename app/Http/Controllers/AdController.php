@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Ad;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\AdUser;
 use Auth;
 
 class AdController extends Controller
@@ -123,6 +124,15 @@ class AdController extends Controller
             $ads = $categories->ads->where('type', 'woffer')->sortByDesc('ad.created_at');
         }
         return response()->json($ads);
+    }
+
+    public function responseAd(Request $request)
+    {
+        AdUser::create([
+            'ad_id' => $request->ad_id,
+            'user_id' => $request->user_id,
+        ]);
+        return response()->json('sucess');
     }
 
     /** Fonction de debug ajax */

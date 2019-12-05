@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Comment;
+use App\Models\Ad;
 use Auth;
 
 class UsersController extends Controller
@@ -50,6 +51,8 @@ class UsersController extends Controller
     public function show(User $user)
     {
         $user = User::whereId(Auth::user()->id)->with('comments.author')->first();
+        $ad = Ad::all()->where('author_id', Auth::user()->id);
+        dd($ad[0]->user);
         return view('user.show', compact('user'));
     }
 

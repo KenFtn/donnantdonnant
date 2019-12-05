@@ -39,7 +39,8 @@ Route::prefix('annonces')->group(function(){
     Route::get('', 'AdController@index')->name('annonces.index');
     Route::post('recherche', 'AdController@search')->name('annonces.search');
     Route::post('offre', 'AdController@offer')->name('annonces.offer');
-    Route::post('/{ad?}', 'AdController@destroy')->name('annonces.destroy');
+    Route::post('/destroy/{ad?}', 'AdController@destroy')->name('annonces.destroy');
+    Route::post('/responseAd', 'AdController@responseAd')->name('annonces.responseAd');
 });
 
 /*Route pour les commentaires*/

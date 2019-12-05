@@ -33,7 +33,7 @@ class Ad extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class, 'id', 'author_id');
+        return $this->belongsToMany(User::class);
     }
 
 }

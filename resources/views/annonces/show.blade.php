@@ -9,7 +9,7 @@
 <h6>{{$ad->desc}}</h6><br>
 
 
-<form method="post">
+<form class='response'>
     @csrf
     <input type='hidden' name='ad_id' value="{{$ad->id}}">
     <input type='hidden' name='user_id' value="{{Auth::user()->id}}">
