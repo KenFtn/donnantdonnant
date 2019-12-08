@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Ad;
+use App\Models\Ad_Category;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\AdUser;
@@ -21,9 +22,9 @@ class AdController extends Controller
     {
         $category = Category::with('ads.user')->where('id', $request->cat)->first();
         $ads = $category->ads->where('type', $request->type)->sortByDesc('ad.created_at');
-        $mainCat = Category::all()->where('category_id', NULL);
-        $subCat = Category::all()->where('category_id', !NULL);
-        return view('annonces.index', compact('ads', 'mainCat', 'subCat', 'category'));
+        $mainCats = Category::all()->where('category_id', NULL);
+        $subCats = Category::all()->where('category_id', !NULL);
+        return view('annonces.index', compact('ads', 'mainCats', 'subCats', 'category'));
     }
 
     /**
@@ -33,7 +34,9 @@ class AdController extends Controller
      */
     public function create($type=NULL)
     {
-        return view('annonces.create', compact('type'));
+        $mainCats = Category::all()->where('category_id', NULL);
+        $subCats = Category::all()->where('category_id', !NULL);
+        return view('annonces.create', compact(['type', 'mainCats', 'subCats']));
     }
 
     /**
@@ -44,7 +47,10 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        Ad::create([
+        $subCat = Category::all()->where('name', $request->cat)->first();
+        $mainCat = Category::whereId($subCat->category_id)->first();
+
+        $ad = Ad::create([
             'city_id' => $request->city_id,
             'type' => $request->type,
             'author_id' => Auth::user()->id,
@@ -54,6 +60,19 @@ class AdController extends Controller
             'desc' => $request->desc,
             'slug' => Str::slug($request->title .' '. Auth::user()->id, '-'),
         ]);
+        
+        Ad_Category::create([
+            'category_id' => $subCat->id,
+            'ad_id' => $ad->id,
+        ]);
+
+        Ad_Category::create([
+            'category_id' => $mainCat->id,
+            'ad_id' => $ad->id,
+        ]);
+
+
+        return back();
     }
 
     /**
@@ -62,9 +81,8 @@ class AdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ad $ad)
     {
-        $ad = Ad::findOrFail($id);
         return view('annonces.show', compact('ad'));
     }
 
@@ -97,9 +115,18 @@ class AdController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ad $ad)
     {
-        Ad::where('id', $id)->delete();
+        $to_deletes = Ad_Category::all()->where('ad_id', $ad->id);
+        foreach($to_deletes as $to_delete){
+            $to_delete->delete();
+        }
+        $delete_reponse = AdUser::all()->where('ad_id', $ad->id);
+        foreach($delete_reponse as $delete){
+            $delete->delete();
+        }
+        $ad->delete();
+        return back();
     }
 
 

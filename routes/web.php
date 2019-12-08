@@ -35,11 +35,11 @@ Route::resource('annonces', 'AdController')
 /*Route personnalisée, gère aussi bien le show, la gestion des deux types d'annonce et de la recherche ajax sur la page d'accueil
 et sur la page index des annonces.*/ 
 Route::prefix('annonces')->group(function(){
-    Route::get('/{id}/{slug?}', 'AdController@show')->name('annonces.show');
+    Route::get('/{ad}/{slug?}', 'AdController@show')->name('annonces.show');
     Route::get('', 'AdController@index')->name('annonces.index');
     Route::post('recherche', 'AdController@search')->name('annonces.search');
     Route::post('offre', 'AdController@offer')->name('annonces.offer');
-    Route::delete('/destroy/{ad?}', 'AdController@destroy')->name('annonces.destroy');
+    Route::delete('/destroy/{ad}', 'AdController@destroy')->name('annonces.destroy');
     Route::post('/responseAd', 'AdController@responseAd')->name('annonces.responseAd');
 });
 

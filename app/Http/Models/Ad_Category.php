@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ad_Category extends Model
 {
+    protected $table = 'ad_category';
+
     protected $fillable = [
         'category_id',
         'ad_id',
