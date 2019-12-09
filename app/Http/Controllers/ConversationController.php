@@ -18,8 +18,8 @@ class ConversationController extends Controller
 
     public function show($id)
     {
-        $conversations = User::with('discussions.users')->where('id',Auth::user()->id )->first()->discussions;
         $conv = Discussion::whereId($id)->first();
+        $conversations = User::with('discussions.users')->where('id',Auth::user()->id )->first()->discussions;
         return view('conversations.show', compact('conversations', 'conv'));
     }
 

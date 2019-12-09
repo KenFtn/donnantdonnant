@@ -3,7 +3,7 @@ require ('./ajax');
 require ('./ajaxComment');
 require ('./ajaxResponseAd');
 require('./jquery.star-rating-svg');
-
+require('./vueConvers');
 
 
 /**
