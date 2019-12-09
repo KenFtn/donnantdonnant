@@ -13,12 +13,17 @@
 //index
 @import './home/index';
 
+//register
+@import './register/register';
+//login
+@import './login/login.scss';
+
+//user
+@import './user/user.scss';
+
 //media queries
 @import './home/mediaqueries.scss';
+@import './register/mediaqueries.scss';
 
 //footer
 @import './home/footer';
-
-
-//register
-@import './register/register'

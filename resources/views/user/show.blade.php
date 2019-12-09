@@ -1,9 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<br>
-<br><br><br><br><br><br>
-Nom de l'utilisateur : {{$user->name}}<br>
+<div class="mainUser">
+    <div class="colDroite">
+        <div class="bonhomme">
+            <div class="imgBulle">
+                <img src="{{asset('img/' . Auth::user()->avatar)}}" alt="photo de profil">
+                <a href=""><div class="rondTof">
+                    <i class="fas fa-camera"></i>
+                </div></a>
+            </div>    
+            <p>Bonjour,<span> {{$user->name}} !</span></p>
+        </div>
+		<div class="bonhomme">
+			
+		</div>
+
+    </div>        
 Ville de l'utilisateur : {{$user->cities->name}}<br>
 Mes points : {{$user->cagnotte}}<br>
 Ma note : {{$user->note}}<br>
@@ -40,4 +53,5 @@ auteur : {{$comment->author->name}}
         - Les annonces qui sont validé avec {$ad->user_id} -> si le champ n'es pas nul, alors il y as quelqu'un qui s'est positionner dessus.<br>
         - Les annonces sans réponse ont un {$ad->user} vide.
 </p>
+</div>
 @endsection

@@ -1,0 +1,71 @@
+@media only screen and (max-width: 1280px)
+{
+    .mainLog
+    {
+        .winLog
+        {
+            flex-direction: column;
+    
+            .gaucheLog
+            {
+                height : 40%;
+                width : 100%;
+
+                svg
+                {
+                    position : absolute;
+                    height : 120%;
+                    width : 120%;
+                    transform: rotate(0deg);
+                    top :30%;
+                    right: 0%;
+                    z-index: 144;
+                }
+                .forme 
+                {
+                   width : 130%;
+                }
+                .gtxt
+                {
+                    top : 5%;
+
+                    p:nth-child(3)
+                    {
+                    margin-top: 7%;
+                    font-size: 1.1rem;
+                    font-style:italic;
+                    margin-bottom: 40px;
+                    }
+                }
+            }
+            .droiteLog
+            {
+                width : 100%;
+                height : 60%;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 450px)
+{
+    .mainLog
+    {
+        .winLog
+        {
+            height : 100%;
+            width : 100%;
+
+            .gaucheLog
+            {
+                display: none;
+            }
+            .droiteLog
+            {
+                width : 100%;
+                height : 100%;
+                padding : 20px 40px;
+
+            }
+        }
+    }
+}

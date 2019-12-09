@@ -1,0 +1,67 @@
+.mainUser
+{
+    background-color: $fond;
+    padding-top: 120px;
+    position :relative;
+    .colDroite
+    {
+        height: 100vh;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        .bonhomme
+        {   
+            background-color: white;
+            border-radius: 7px;
+            height : 220px;
+            width : 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0px 0px 31px -16px rgba(0,0,0,0.75);
+            margin-bottom: 30px;
+            .imgBulle
+            {
+
+                img
+                {
+                    height : 140px;
+                    width : 140px;
+                    border-radius: 50%;
+                }
+                .rondTof
+                {
+                    border-radius: 50%;
+                    height : 60px;
+                    width : 60px;
+                    background-color: $orange;
+                    position: absolute;
+                    bottom : 60px;
+                    right : 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    i
+                    {
+                        color : white;
+                        font-size: 1.9rem;
+                    }
+                }
+            }
+            p
+            {
+                margin-top: 24px;
+
+                span
+                {
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+}
