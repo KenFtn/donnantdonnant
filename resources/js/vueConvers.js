@@ -1,12 +1,7 @@
-axios({
-    headers: {
-        "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-        "X-CSRF-Token": document.head.querySelector("[name=csrf-token][content]").content
-    },
-    method:'post',
-    url:'/api/user',
-    data: formData
-}).then(response => {
-    console.log(Object.values(response.data));
+import  Vue from 'vue'
+import Messagerie from './components/MessagerieComponent.vue'
+
+new Vue({
+    el: '#conversation',
+    components:{ Messagerie }
 })
