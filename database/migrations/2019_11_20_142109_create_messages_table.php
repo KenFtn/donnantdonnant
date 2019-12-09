@@ -17,6 +17,11 @@ class CreateMessagesTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->longText('content');
+            $table->bigInteger('author_id')->unsigned();
+            $table->foreign('author_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('restrict');
         });
     }
 

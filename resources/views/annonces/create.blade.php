@@ -19,12 +19,10 @@
     <div class="">
         <label for="title" class="">Choisir la catégorie de l'annonce</label>
         <select name="cat" id="cat">
-            @foreach($mainCats as $mainCat)
-            <optgroup label={{$mainCat->name}}>
-                @foreach($subCats as $petite)
-                    @if($petite->category_id == $mainCat->id)
-                        <option>{{$petite->name}}</option>
-                     @endif
+            @foreach($categories as $category)
+            <optgroup label={{$category->name}}>
+                @foreach($category->subCategories as $subCategory)
+                        <option>{{$subCategory->name}}</option>
                 @endforeach
             </optgroup>
             @endforeach

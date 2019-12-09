@@ -22,9 +22,8 @@ class AdController extends Controller
     {
         $category = Category::with('ads.user')->where('id', $request->cat)->first();
         $ads = $category->ads->where('type', $request->type)->sortByDesc('ad.created_at');
-        $mainCats = Category::all()->where('category_id', NULL);
-        $subCats = Category::all()->where('category_id', !NULL);
-        return view('annonces.index', compact('ads', 'mainCats', 'subCats', 'category'));
+        $categories = Category::with('subCategories')->where('category_id', NULL)->get();
+        return view('annonces.index', compact('ads', 'categories', 'category'));
     }
 
     /**
@@ -34,9 +33,8 @@ class AdController extends Controller
      */
     public function create($type=NULL)
     {
-        $mainCats = Category::all()->where('category_id', NULL);
-        $subCats = Category::all()->where('category_id', !NULL);
-        return view('annonces.create', compact(['type', 'mainCats', 'subCats']));
+        $categories = Category::with('subCategories')->where('category_id', NULL)->get();
+        return view('annonces.create', compact(['type','categories']));
     }
 
     /**

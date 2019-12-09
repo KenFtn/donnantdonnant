@@ -45,3 +45,9 @@ Route::prefix('annonces')->group(function(){
 
 /*Route pour les commentaires*/
 Route::post('comment/store', 'CommentsController@store')->name('comment.store');
+
+/*Route pour les conversations*/
+Route::get('/conversations', 'ConversationController@index')->name('conversations.index');
+Route::get('/conversations/{discussion}', 'ConversationController@show')->name('conversations.show');
+Route::post('/conversations/{discussion}', 'ConversationController@store')->name('conversations.store');
+

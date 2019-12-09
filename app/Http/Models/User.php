@@ -53,4 +53,12 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->belongsToMany(Ad::class);
     }
+
+    public function discussions(){
+        return $this->belongsToMany(Discussion::class);
+    }
+
+    public function messages(){
+        return $this->hasMany(Message::class, 'author_id','id');
+    }
 }
