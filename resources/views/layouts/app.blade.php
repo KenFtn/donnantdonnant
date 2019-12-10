@@ -92,7 +92,7 @@
                         @else
                         <div class="bonjour">
                             <p>Bonjour, <span class="userName">{{ Auth::user()->name }} !</span><i class="fas fa-sort-down"></i></p>
-                            <img src="{{asset('img/' . Auth::user()->avatar)}}" alt="Photo de profil">
+                            <img src="{{asset(Auth::user()->avatar)}}" alt="Photo de profil">
                             <div class="miniMenu">
                                 <a class="" href="{{ route('user.show', Auth::user()->name)}}" v-pre>
                                     Mon profil<span class="caret"></span>
