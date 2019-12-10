@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ImagesRequest;
 use App\Models\User;
 use App\Models\Comment;
 use App\Models\Ad;
@@ -87,5 +88,13 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function storeAvatar(Request $request){
+        $path = $request->image->store(config('images.path') . '/avatar//' . Auth::user()->name . Auth::user()->id, 'public');
+        $user = Auth::user();
+        $user->avatar = $path;
+        $user->save();
+        return back();
     }
 }

@@ -24,6 +24,7 @@ Auth::routes();
 Route::group(['prefix' => 'user'], function() {
     Route::get('/', 'UsersController@show')->name('user.show')->middleware('auth');
     Route::get('show/{name?}', 'UsersController@index')->name('user.index')->middleware('auth');
+    Route::post('avatar', 'UsersController@storeAvatar')->name('edit.avatar');
 });
 
 /*Route des annonces, ajout de la contrainte d'être connecter pour edit d'une annonce plus personnalisation des vues index et show */

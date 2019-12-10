@@ -5,13 +5,20 @@
     <div class="colDroite">
         <div class="bonhomme">
             <div class="imgBulle">
-                <img src="{{asset('img/' . Auth::user()->avatar)}}" alt="photo de profil">
+                <img src="{{asset( Auth::user()->avatar)}}" alt="photo de profil">
                 <a href=""><div class="rondTof">
                     <i class="fas fa-camera"></i>
                 </div></a>
             </div>    
             <p>Bonjour,<span> {{$user->name}} !</span></p>
         </div>
+        <form action="{{ route('edit.avatar') }}" method="POST"  enctype="multipart/form-data">
+            @csrf
+            <div>
+                <input type="file" name="image" id="image"  value="{{ old('image') }}">
+            </div>
+            <button type="submit">Envoyer !</button>
+        </form>
 		<div class="bonhomme">
 			
 		</div>

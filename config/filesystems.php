@@ -50,8 +50,7 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => public_path(),
             'visibility' => 'public',
         ],
 
@@ -62,6 +61,12 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
+        ],
+        'voyager' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),// change here something specific to your application need
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
         ],
 
     ],
