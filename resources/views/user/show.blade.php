@@ -40,6 +40,8 @@ auteur : {{$comment->author->name}}
 <hr>
 @foreach($ads as $ad)
 <h3>{{$ad->title}}</h3>
+{{$ad->categories}}
+
 <form action="{{ route('annonces.destroy', $ad->id) }}" method="post">
         @csrf
         @method('DELETE')

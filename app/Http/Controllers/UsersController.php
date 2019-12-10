@@ -97,4 +97,8 @@ class UsersController extends Controller
         $user->save();
         return back();
     }
+
+    public function changeCities(Request $request){
+        
+    }
 }

@@ -64,7 +64,7 @@ return [
         ],
         'voyager' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),// change here something specific to your application need
+            'root' => storage_path(),// change here something specific to your application need
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],

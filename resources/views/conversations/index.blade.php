@@ -3,10 +3,10 @@
 @section('content')
 <br><br><br><br>
 <div class="container ">
-    <div id='conversation'>
+    <!--<div id='conversation'>
         <Messagerie :user={{Auth::user()->id}}></Messagerie>
-    </div>
-    <!--
+    </div>-->
+    
     <div class='row m-5'>
         <div class='col-md-3'>
             <div class ="list-group">
@@ -16,6 +16,6 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 @endsection
