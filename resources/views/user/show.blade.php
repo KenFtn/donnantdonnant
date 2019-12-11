@@ -2,27 +2,39 @@
 
 @section('content')
 <div class="mainUser">
+    <div class="blackModal"></div>
     <div class="colDroite">
         <div class="bonhomme">
             <div class="imgBulle">
-                <img src="{{asset( Auth::user()->avatar)}}" alt="photo de profil">
+                <img src="{{ asset('img/users/default.png') }}" alt="photo de profil">
                 <a href=""><div class="rondTof">
                     <i class="fas fa-camera"></i>
                 </div></a>
             </div>    
             <p>Bonjour,<span> {{$user->name}} !</span></p>
         </div>
-        <form action="{{ route('edit.avatar') }}" method="POST"  enctype="multipart/form-data">
-            @csrf
+        <div class="editPic">
             <div>
-                <input type="file" name="image" id="image"  value="{{ old('image') }}">
+                <p>Mettez à jour votre photo de profil</p>
             </div>
-            <button type="submit">Envoyer !</button>
-        </form>
+
+            <div>      
+                <p>Selectionnez un fichier</p>      
+                <form action="{{ route('edit.avatar') }}" method="POST"  enctype="multipart/form-data">
+                    @csrf
+                    <label for="image">Upload</label>
+                    <input class="inputfile" type="file" name="image" id="image"  value="{{ old('image') }}"><br>
+               
+                    <button type="submit">Envoyer !</button>
+                </form>
+            </div>
+            <div>
+                <p>Fermer</p>
+            </div>
+        </div>
 		<div class="bonhomme">
 			
 		</div>
-
     </div>        
 Ville de l'utilisateur : {{$user->cities->name}}<br>
 Mes points : {{$user->cagnotte}}<br>
@@ -40,8 +52,6 @@ auteur : {{$comment->author->name}}
 <hr>
 @foreach($ads as $ad)
 <h3>{{$ad->title}}</h3>
-{{$ad->categories}}
-
 <form action="{{ route('annonces.destroy', $ad->id) }}" method="post">
         @csrf
         @method('DELETE')
